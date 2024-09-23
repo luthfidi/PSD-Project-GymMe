@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navbar.master.cs" Inherits="GymMe.Layouts.Navbar" %>
+
+<!DOCTYPE html>
+
+<html class="w-100 h-100">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-4">
+            <div class="container mx-auto">
+                <asp:LinkButton ID="LBLogo" runat="server" CssClass="navbar-brand text-xl font-bold" OnClick="LBLogo_Click">GymMe</asp:LinkButton>
+                <asp:Panel ID="CustomerPanel" runat="server" Visible="false" CssClass="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBOrderSupplement" CssClass="nav-link" runat="server" OnClick="LBOrderSupplement_Click">Order Supplement</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBHistory" CssClass="nav-link" runat="server" OnClick="LBHistory_Click">History</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBProfile" CssClass="nav-link" runat="server" OnClick="LBProfile_Click">Profile</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBCartPage" CssClass="nav-link" runat="server" OnClick="LBCartPage_Click">Cart Page</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBLogOut" CssClass="nav-link" runat="server" OnClick="LBLogOut_Click">Log Out</asp:LinkButton>
+                        </li>
+                    </ul>
+                </asp:Panel>
+                <asp:Panel ID="AdminPanel" runat="server" Visible="false" CssClass="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBHome" CssClass="nav-link" runat="server" OnClick="LBHome_Click">Home</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBManageSupplement" CssClass="nav-link" runat="server" OnClick="LBManageSupplement_Click">Manage Supplement</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBOrderQueue" CssClass="nav-link" runat="server" OnClick="LBOrderQueue_Click">Order Queue</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBHistory1" CssClass="nav-link" runat="server" OnClick="LBHistory1_Click">History Page</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBProfile1" CssClass="nav-link" runat="server" OnClick="LBProfile1_Click">Profile</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBTReport" CssClass="nav-link" runat="server" OnClick="LBTReport_Click">Transaction Report</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LBLogOut1" CssClass="nav-link" runat="server" OnClick="LBLogOut1_Click">Log Out</asp:LinkButton>
+                        </li>
+                    </ul>
+                </asp:Panel>
+            </div>
+        </nav>
+        <div class="p-5 flex flex-col items-center justify-center gap-2 w-full h-full">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

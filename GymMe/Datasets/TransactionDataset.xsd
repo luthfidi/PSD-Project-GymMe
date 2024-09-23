@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TransactionDataset" targetNamespace="http://tempuri.org/TransactionDataset.xsd" xmlns:mstns="http://tempuri.org/TransactionDataset.xsd" xmlns="http://tempuri.org/TransactionDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TransactionDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="TransactionDataset" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TransactionDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TransactionHeader" msprop:Generator_RowEvHandlerName="TransactionHeaderRowChangeEventHandler" msprop:Generator_RowDeletedName="TransactionHeaderRowDeleted" msprop:Generator_RowDeletingName="TransactionHeaderRowDeleting" msprop:Generator_RowEvArgName="TransactionHeaderRowChangeEvent" msprop:Generator_TablePropName="TransactionHeader" msprop:Generator_RowChangedName="TransactionHeaderRowChanged" msprop:Generator_UserTableName="TransactionHeader" msprop:Generator_RowChangingName="TransactionHeaderRowChanging" msprop:Generator_RowClassName="TransactionHeaderRow" msprop:Generator_TableClassName="TransactionHeaderDataTable" msprop:Generator_TableVarName="tableTransactionHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_UserColumnName="UserID" msprop:Generator_ColumnVarNameInTable="columnUserID" type="xs:string" minOccurs="0" />
+              <xs:element name="TransactionDate" msprop:Generator_ColumnPropNameInTable="TransactionDateColumn" msprop:Generator_ColumnPropNameInRow="TransactionDate" msprop:Generator_UserColumnName="TransactionDate" msprop:Generator_ColumnVarNameInTable="columnTransactionDate" type="xs:string" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="TransactionID" msprop:Generator_ColumnPropNameInTable="TransactionIDColumn" msprop:Generator_ColumnPropNameInRow="TransactionID" msprop:Generator_UserColumnName="TransactionID" msprop:Generator_ColumnVarNameInTable="columnTransactionID" type="xs:string" minOccurs="0" />
+              <xs:element name="Subtotal" msprop:Generator_UserColumnName="Subtotal" msprop:Generator_ColumnPropNameInTable="SubtotalColumn" msprop:Generator_ColumnPropNameInRow="Subtotal" msprop:Generator_ColumnVarNameInTable="columnSubtotal" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TransactionDetail" msprop:Generator_RowEvHandlerName="TransactionDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="TransactionDetailRowDeleted" msprop:Generator_RowDeletingName="TransactionDetailRowDeleting" msprop:Generator_RowEvArgName="TransactionDetailRowChangeEvent" msprop:Generator_TablePropName="TransactionDetail" msprop:Generator_RowChangedName="TransactionDetailRowChanged" msprop:Generator_UserTableName="TransactionDetail" msprop:Generator_RowChangingName="TransactionDetailRowChanging" msprop:Generator_RowClassName="TransactionDetailRow" msprop:Generator_TableClassName="TransactionDetailDataTable" msprop:Generator_TableVarName="tableTransactionDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TransactionID" msprop:Generator_ColumnPropNameInTable="TransactionIDColumn" msprop:Generator_ColumnPropNameInRow="TransactionID" msprop:Generator_UserColumnName="TransactionID" msprop:Generator_ColumnVarNameInTable="columnTransactionID" type="xs:string" minOccurs="0" />
+              <xs:element name="SupplementID" msprop:Generator_ColumnPropNameInTable="SupplementIDColumn" msprop:Generator_ColumnPropNameInRow="SupplementID" msprop:Generator_UserColumnName="SupplementID" msprop:Generator_ColumnVarNameInTable="columnSupplementID" type="xs:string" minOccurs="0" />
+              <xs:element name="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MsUser" msprop:Generator_RowEvHandlerName="MsUserRowChangeEventHandler" msprop:Generator_RowDeletedName="MsUserRowDeleted" msprop:Generator_RowDeletingName="MsUserRowDeleting" msprop:Generator_RowEvArgName="MsUserRowChangeEvent" msprop:Generator_TablePropName="MsUser" msprop:Generator_RowChangedName="MsUserRowChanged" msprop:Generator_UserTableName="MsUser" msprop:Generator_RowChangingName="MsUserRowChanging" msprop:Generator_RowClassName="MsUserRow" msprop:Generator_TableClassName="MsUserDataTable" msprop:Generator_TableVarName="tableMsUser">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_UserColumnName="UserID" msprop:Generator_ColumnVarNameInTable="columnUserID" type="xs:string" minOccurs="0" />
+              <xs:element name="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_UserColumnName="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MsSupplement" msprop:Generator_RowEvHandlerName="MsSupplementRowChangeEventHandler" msprop:Generator_RowDeletedName="MsSupplementRowDeleted" msprop:Generator_RowDeletingName="MsSupplementRowDeleting" msprop:Generator_RowEvArgName="MsSupplementRowChangeEvent" msprop:Generator_TablePropName="MsSupplement" msprop:Generator_RowChangedName="MsSupplementRowChanged" msprop:Generator_UserTableName="MsSupplement" msprop:Generator_RowChangingName="MsSupplementRowChanging" msprop:Generator_RowClassName="MsSupplementRow" msprop:Generator_TableClassName="MsSupplementDataTable" msprop:Generator_TableVarName="tableMsSupplement">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SupplementID" msprop:Generator_ColumnPropNameInTable="SupplementIDColumn" msprop:Generator_ColumnPropNameInRow="SupplementID" msprop:Generator_UserColumnName="SupplementID" msprop:Generator_ColumnVarNameInTable="columnSupplementID" type="xs:string" minOccurs="0" />
+              <xs:element name="SupplementName" msprop:Generator_ColumnPropNameInTable="SupplementNameColumn" msprop:Generator_ColumnPropNameInRow="SupplementName" msprop:Generator_UserColumnName="SupplementName" msprop:Generator_ColumnVarNameInTable="columnSupplementName" type="xs:string" minOccurs="0" />
+              <xs:element name="SupplementPrice" msprop:Generator_ColumnPropNameInTable="SupplementPriceColumn" msprop:Generator_ColumnPropNameInRow="SupplementPrice" msprop:Generator_UserColumnName="SupplementPrice" msprop:Generator_ColumnVarNameInTable="columnSupplementPrice" type="xs:string" minOccurs="0" />
+              <xs:element name="SupplementExpiryDate" msprop:Generator_ColumnPropNameInTable="SupplementExpiryDateColumn" msprop:Generator_ColumnPropNameInRow="SupplementExpiryDate" msprop:Generator_UserColumnName="SupplementExpiryDate" msprop:Generator_ColumnVarNameInTable="columnSupplementExpiryDate" type="xs:string" minOccurs="0" />
+              <xs:element name="SupplementTypeID" msprop:Generator_ColumnPropNameInTable="SupplementTypeIDColumn" msprop:Generator_ColumnPropNameInRow="SupplementTypeID" msprop:Generator_UserColumnName="SupplementTypeID" msprop:Generator_ColumnVarNameInTable="columnSupplementTypeID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MsSupplementType" msprop:Generator_RowEvHandlerName="MsSupplementTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="MsSupplementTypeRowDeleted" msprop:Generator_RowDeletingName="MsSupplementTypeRowDeleting" msprop:Generator_RowEvArgName="MsSupplementTypeRowChangeEvent" msprop:Generator_TablePropName="MsSupplementType" msprop:Generator_RowChangedName="MsSupplementTypeRowChanged" msprop:Generator_UserTableName="MsSupplementType" msprop:Generator_RowChangingName="MsSupplementTypeRowChanging" msprop:Generator_RowClassName="MsSupplementTypeRow" msprop:Generator_TableClassName="MsSupplementTypeDataTable" msprop:Generator_TableVarName="tableMsSupplementType">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SupplementTypeID" msprop:Generator_ColumnPropNameInTable="SupplementTypeIDColumn" msprop:Generator_ColumnPropNameInRow="SupplementTypeID" msprop:Generator_UserColumnName="SupplementTypeID" msprop:Generator_ColumnVarNameInTable="columnSupplementTypeID" type="xs:string" minOccurs="0" />
+              <xs:element name="SupplementTypeName" msprop:Generator_ColumnPropNameInTable="SupplementTypeNameColumn" msprop:Generator_ColumnPropNameInRow="SupplementTypeName" msprop:Generator_UserColumnName="SupplementTypeName" msprop:Generator_ColumnVarNameInTable="columnSupplementTypeName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="TransactionHeader_TransactionDetail" msdata:parent="TransactionHeader" msdata:child="TransactionDetail" msdata:parentkey="TransactionID" msdata:childkey="TransactionID" msprop:Generator_UserParentTable="TransactionHeader" msprop:Generator_UserChildTable="TransactionDetail" msprop:Generator_RelationVarName="relationTransactionHeader_TransactionDetail" msprop:Generator_ChildPropName="GetTransactionDetailRows" msprop:Generator_ParentPropName="TransactionHeaderRow" msprop:Generator_UserRelationName="TransactionHeader_TransactionDetail" />
+      <msdata:Relationship name="MsUser_TransactionHeader" msdata:parent="MsUser" msdata:child="TransactionHeader" msdata:parentkey="UserID" msdata:childkey="UserID" msprop:Generator_UserParentTable="MsUser" msprop:Generator_UserChildTable="TransactionHeader" msprop:Generator_RelationVarName="relationMsUser_TransactionHeader" msprop:Generator_ChildPropName="GetTransactionHeaderRows" msprop:Generator_UserRelationName="MsUser_TransactionHeader" msprop:Generator_ParentPropName="MsUserRow" />
+      <msdata:Relationship name="MsSupplement_TransactionDetail" msdata:parent="MsSupplement" msdata:child="TransactionDetail" msdata:parentkey="SupplementID" msdata:childkey="SupplementID" msprop:Generator_UserParentTable="MsSupplement" msprop:Generator_UserChildTable="TransactionDetail" msprop:Generator_RelationVarName="relationMsSupplement_TransactionDetail" msprop:Generator_ChildPropName="GetTransactionDetailRows" msprop:Generator_UserRelationName="MsSupplement_TransactionDetail" msprop:Generator_ParentPropName="MsSupplementRow" />
+      <msdata:Relationship name="MsSupplementType_MsSupplement" msdata:parent="MsSupplementType" msdata:child="MsSupplement" msdata:parentkey="SupplementTypeID" msdata:childkey="SupplementTypeID" msprop:Generator_UserParentTable="MsSupplementType" msprop:Generator_UserChildTable="MsSupplement" msprop:Generator_RelationVarName="relationMsSupplementType_MsSupplement" msprop:Generator_ChildPropName="GetMsSupplementRows" msprop:Generator_UserRelationName="MsSupplementType_MsSupplement" msprop:Generator_ParentPropName="MsSupplementTypeRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
