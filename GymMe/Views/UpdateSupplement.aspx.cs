@@ -10,95 +10,160 @@ using System.Web.UI.WebControls;
 
 namespace GymMe.Views
 {
-	public partial class UpdateSupplement : System.Web.UI.Page
-	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
-			if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
-			{
-				Response.Redirect("~/Views/LoginPage.aspx");
-				return;
-			}
+    public partial class UpdateSupplement : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                Response.Redirect("~/Views/LoginPage.aspx");
+                return;
+            }
 
-			if (Session["user"] == null)
-			{
-				string cookie = Request.Cookies["user_cookie"].Value;
-				Response<MsUser> response = UserController.LoginUserByCookie(cookie);
+            if (Session["user"] == null)
+            {
+                string cookie = Request.Cookies["user_cookie"].Value;
+                Response<MsUser> response = UserController.LoginUserByCookie(cookie);
 
-				if (!response.Success)
-				{
-					Response.Cookies["user_cookie"].Expires = DateTime.Now.AddDays(-1);
-					Response.Redirect("~/Views/LoginPage.aspx");
-					return;
-				}
+                if (!response.Success)
+                {
+                    Response.Cookies["user_cookie"].Expires = DateTime.Now.AddDays(-1);
+                    Response.Redirect("~/Views/LoginPage.aspx");
+                    return;
+                }
 
-				Session["user"] = response.Data;
-			}
+                Session["user"] = response.Data;
+            }
 
-			MsUser currUser = Session["user"] as MsUser;
+            MsUser currUser = Session["user"] as MsUser;
 
-			if (currUser.UserRole.Equals("Customer"))
-			{
-				Response.Redirect("~/Views/HomePage.aspx");
-				return;
-			}
+            if (currUser.UserRole.Equals("Customer"))
+            {
+                Response.Redirect("~/Views/HomePage.aspx");
+                return;
+            }
 
-			if (!IsPostBack)
-			{
-				RefreshDropdown();
+            if (!IsPostBack)
+            {
+                RefreshDropdown();
 
-				int id = int.Parse(Request["Id"]);
-				Response<MsSupplement> response = SupplementController.GetSupplementById(id);
+                int id = int.Parse(Request["Id"]);
+                Response<MsSupplement> response = SupplementController.GetSupplementById(id);
 
-				if (!response.Success)
-				{
-					LblError.Text = response.Message;
-					return;
-				}
+                if (!response.Success)
+                {
+                    LblError.Text = response.Message;
+                    return;
+                }
 
-				MsSupplement supplement = response.Data;
-				TxtName.Text = supplement.SupplementName;
-				TxtExpiry.Text = string.Format("{0:yyyy-MM-dd}", supplement.SupplementExpiryDate);
-				TxtPrice.Text = supplement.SupplementPrice.ToString();
-				DDLType.SelectedValue = supplement.SupplementTypeID.ToString();
-			}
-		}
+                MsSupplement supplement = response.Data;
+                TxtName.Text = supplement.SupplementName;
+                TxtExpiry.Text = string.Format("{0:yyyy-MM-dd}", supplement.SupplementExpiryDate);
+                TxtPrice.Text = supplement.SupplementPrice.ToString();
+                DDLType.SelectedValue = supplement.SupplementTypeID.ToString();
+            }
+        }
 
-		private void RefreshDropdown()
-		{
-			Response<List<MsSupplementType>> response = SupplementTypeController.GetAllTypes();
+        private void RefreshDropdown()
+        {
+            Response<List<MsSupplementType>> response = SupplementTypeController.GetAllTypes();
 
-			if (response.Success)
-			{
-				DDLType.DataSource = response.Data;
-				DDLType.DataTextField = "SupplementTypeName";
-				DDLType.DataValueField = "SupplementTypeID";
-				DDLType.DataBind();
-			}
-			else
-			{
-				LblError.Text = response.Message;
-				LblError.ForeColor = System.Drawing.Color.Red;
-			}
-		}
+            if (response.Success)
+            {
+                DDLType.DataSource = response.Data;
+                DDLType.DataTextField = "SupplementTypeName";
+                DDLType.DataValueField = "SupplementTypeID";
+                DDLType.DataBind();
+            }
+            else
+            {
+                LblError.Text = response.Message;
+                LblError.ForeColor = System.Drawing.Color.Red;
+            }
+        }
 
-		protected void LBBack_Click(object sender, EventArgs e)
-		{
-			Response.Redirect("~/Views/ManageSupplement.aspx");
-		}
+        protected void LBBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ManageSupplement.aspx");
+        }
 
-		protected void BtnUpdate_Click(object sender, EventArgs e)
-		{
-			int id = int.Parse(Request["Id"]);
-			string name = TxtName.Text;
-			string expiry = TxtExpiry.Text;
-			int price = int.Parse(TxtPrice.Text);
-			int typeID = int.Parse(DDLType.SelectedValue);
+        protected void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(Request["Id"]);
+            string name = TxtName.Text;
+            string expiry = TxtExpiry.Text;
+            int price = int.Parse(TxtPrice.Text);
+            int typeID = int.Parse(DDLType.SelectedValue);
 
-			Response<MsSupplement> response = SupplementController.UpdateSupplement(id, name, expiry, price, typeID);
+            Response<MsSupplement> response = SupplementController.UpdateSupplement(id, name, expiry, price, typeID);
 
-			LblError.Text = response.Message;
-			LblError.ForeColor = (response.Success) ? System.Drawing.Color.Blue : System.Drawing.Color.Red;
-		}
-	}
+            LblError.Text = response.Message;
+            LblError.ForeColor = (response.Success) ? System.Drawing.Color.Blue : System.Drawing.Color.Red;
+        }
+
+        protected void BtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(Request["Id"]);
+
+                // Call the controller to delete the supplement by ID
+                Response<MsSupplement> response = SupplementController.DeleteSupplement(id);
+
+                if (response.Success)
+                {
+                    // If delete is successful, redirect back to the ManageSupplement page
+                    Response.Redirect("~/Views/ManageSupplement.aspx");
+                }
+                else
+                {
+                    // If delete failed, display the error message
+                    LblError.Text = response.Message;
+                    LblError.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any unexpected exceptions and show error message
+                LblError.Text = "An error occurred: " + ex.Message;
+                LblError.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+
+        public static class SupplementController
+{
+    public static Response<MsSupplement> DeleteSupplement(int id)
+    {
+        Response<MsSupplement> response = new Response<MsSupplement>();
+
+        try
+        {
+            using (var dbContext = new GymMeDbContext())
+            {
+                MsSupplement supplement = dbContext.MsSupplements.Find(id);
+                if (supplement != null)
+                {
+                    dbContext.MsSupplements.Remove(supplement);
+                    dbContext.SaveChanges();
+                    response.Success = true;
+                    response.Message = "Supplement deleted successfully.";
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Supplement not found.";
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            response.Success = false;
+            response.Message = "Error occurred while deleting: " + ex.Message;
+        }
+
+        return response;
+    }
+}
+
+    }
 }
