@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="GymMe - Manage Supplement" Language="C#" MasterPageFile="~/Layouts/Navbar.Master" AutoEventWireup="true" CodeBehind="ManageSupplement.aspx.cs" Inherits="GymMe.Views.ManageSupplement" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -7,13 +8,18 @@
         .transition { transition: all 0.3s ease-in-out; }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="bg-gray-100 min-h-screen py-8">
         <div class="container mx-auto px-4">
-            <h1 class="mb-6 text-3xl font-bold text-gray-800">Manage Supplements</h1>
+            <h1 class="mb-6 text-3xl font-bold text-gray-800">Manage Supplement</h1>
             <div class="bg-white shadow-xl rounded-lg overflow-hidden">
                 <div class="overflow-x-auto">
-                    <asp:GridView ID="GVSupplement" runat="server" AutoGenerateColumns="False" OnRowUpdating="GVSupplement_RowUpdating" OnRowDeleting="GVSupplement_RowDeleting" CssClass="min-w-full divide-y divide-gray-200">
+                    <asp:GridView ID="GVSupplement" runat="server" AutoGenerateColumns="False" 
+                        OnRowUpdating="GVSupplement_RowUpdating" 
+                        OnRowDeleting="GVSupplement_RowDeleting" 
+                        DataKeyNames="SupplementID"
+                        CssClass="min-w-full divide-y divide-gray-200">
                         <HeaderStyle CssClass="bg-gray-50" />
                         <RowStyle CssClass="bg-white hover:bg-gray-50 transition" />
                         <AlternatingRowStyle CssClass="bg-gray-50 hover:bg-gray-100 transition" />

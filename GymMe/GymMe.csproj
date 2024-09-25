@@ -1246,6 +1246,7 @@
     <Content Include="Views\OrderSupplement.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
+    <Content Include="Views\SuplementController.aspx" />
     <Content Include="Views\ReportPage.aspx" />
     <Content Include="Views\UpdateSupplement.aspx" />
     <Content Include="Web.config" />
@@ -1403,6 +1404,12 @@
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuplementController.aspx.cs">
+      <DependentUpon>SuplementController.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuplementController.aspx.designer.cs">
+      <DependentUpon>SuplementController.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ReportPage.aspx.cs">
       <DependentUpon>ReportPage.aspx</DependentUpon>
