@@ -29,12 +29,17 @@
 ![image](https://github.com/user-attachments/assets/15087382-7108-47f2-98c8-0a369f1bea6e)
 
 ###Order Supplement Page:
-
-###Order Queue Page:
+![image](https://github.com/user-attachments/assets/19b51925-1d6e-480d-a1b6-ea02ac40e184)
 
 ###History Page:
+![image](https://github.com/user-attachments/assets/5b23a486-0687-4d6f-b34d-fe99c948ded0)
 
 ###Profile Page:
+![image](https://github.com/user-attachments/assets/ed4d27df-9637-4b3f-a529-231f21fdb027)
+
+###Cart Page:
+![image](https://github.com/user-attachments/assets/c92c1a99-2292-47cd-928b-d990c083e0df)
+
 
 
 
