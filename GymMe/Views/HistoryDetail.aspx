@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="GymMe - Transaction Detail" Language="C#" MasterPageFile="~/Layouts/Navbar.Master" AutoEventWireup="true" CodeBehind="HistoryDetail.aspx.cs" Inherits="GymMe.Views.HistoryDetail" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container mx-auto px-4 py-8">
         <asp:LinkButton ID="LBBack" runat="server" CssClass="text-blue-500 hover:text-blue-600 mb-4 inline-block" OnClick="LBBack_Click">

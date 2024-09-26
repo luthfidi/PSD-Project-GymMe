@@ -19,7 +19,7 @@
             </asp:LinkButton>
             <div class="max-w-2xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden">
                 <div class="px-8 py-6">
-                    <h1 class="text-3xl font-bold mb-8 text-gray-800">Update Supplement</h1>
+                    <h1 class="text-3xl font-bold mb-8 text-gray-800">Update Supplement Here</h1>
                     <div class="space-y-6">
                         <div>
                             <asp:Label ID="LblName" runat="server" Text="Supplement Name" CssClass="block text-sm font-medium text-gray-700 mb-1"></asp:Label>

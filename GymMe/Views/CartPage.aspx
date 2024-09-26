@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="GymMe - Cart Page" Language="C#" MasterPageFile="~/Layouts/Navbar.Master" AutoEventWireup="true" CodeBehind="CartPage.aspx.cs" Inherits="GymMe.Views.CartPage" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-3xl font-bold text-gray-800 mb-6">Your Cart</h1>

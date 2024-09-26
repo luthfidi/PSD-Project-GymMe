@@ -1,70 +1,89 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navbar.master.cs" Inherits="GymMe.Layouts.Navbar" %>
-
 <!DOCTYPE html>
-
-<html class="w-100 h-100">
+<html class="w-full h-full">
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <!-- Include Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
 </head>
-<body class="bg-gray-100">
-    <form id="form1" runat="server">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-4">
-            <div class="container mx-auto">
-                <asp:LinkButton ID="LBLogo" runat="server" CssClass="navbar-brand text-xl font-bold" OnClick="LBLogo_Click">GymMe</asp:LinkButton>
-                <asp:Panel ID="CustomerPanel" runat="server" Visible="false" CssClass="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBOrderSupplement" CssClass="nav-link" runat="server" OnClick="LBOrderSupplement_Click">Order Supplement</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBHistory" CssClass="nav-link" runat="server" OnClick="LBHistory_Click">History</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBProfile" CssClass="nav-link" runat="server" OnClick="LBProfile_Click">Profile</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBCartPage" CssClass="nav-link" runat="server" OnClick="LBCartPage_Click">Cart Page</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBLogOut" CssClass="nav-link" runat="server" OnClick="LBLogOut_Click">Log Out</asp:LinkButton>
-                        </li>
-                    </ul>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <form id="form1" runat="server" class="flex-grow">
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class="flex-shrink-0 flex items-center">
+                            <asp:LinkButton ID="LBLogo" runat="server" CssClass="text-2xl font-bold text-indigo-600" OnClick="LBLogo_Click">
+                                <i class="fas fa-dumbbell mr-2"></i>GymMe
+                            </asp:LinkButton>
+                        </div>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                        <asp:Panel ID="CustomerPanel" runat="server" Visible="false" CssClass="flex space-x-4">
+                            <asp:LinkButton ID="LBOrderSupplement" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBOrderSupplement_Click"><i class="fas fa-shopping-cart mr-1"></i>Order Supplement</asp:LinkButton>
+                            <asp:LinkButton ID="LBHistory" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBHistory_Click"><i class="fas fa-history mr-1"></i>History</asp:LinkButton>
+                            <asp:LinkButton ID="LBProfile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBProfile_Click"><i class="fas fa-user mr-1"></i>Profile</asp:LinkButton>
+                            <asp:LinkButton ID="LBCartPage" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBCartPage_Click"><i class="fas fa-shopping-basket mr-1"></i>Cart</asp:LinkButton>
+                            <asp:LinkButton ID="LBLogOut" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBLogOut_Click"><i class="fas fa-sign-out-alt mr-1"></i>Log Out</asp:LinkButton>
+                        </asp:Panel>
+                        <asp:Panel ID="AdminPanel" runat="server" Visible="false" CssClass="flex space-x-4">
+                            <asp:LinkButton ID="LBHome" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBHome_Click"><i class="fas fa-home mr-1"></i>Home</asp:LinkButton>
+                            <asp:LinkButton ID="LBManageSupplement" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBManageSupplement_Click"><i class="fas fa-pills mr-1"></i>Manage Supplement</asp:LinkButton>
+                            <asp:LinkButton ID="LBOrderQueue" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBOrderQueue_Click"><i class="fas fa-list-ol mr-1"></i>Order Queue</asp:LinkButton>
+                            <asp:LinkButton ID="LBHistory1" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBHistory1_Click"><i class="fas fa-history mr-1"></i>History</asp:LinkButton>
+                            <asp:LinkButton ID="LBProfile1" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBProfile1_Click"><i class="fas fa-user mr-1"></i>Profile</asp:LinkButton>
+                            <asp:LinkButton ID="LBTReport" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBTReport_Click"><i class="fas fa-chart-bar mr-1"></i>Transaction Report</asp:LinkButton>
+                            <asp:LinkButton ID="LBLogOut1" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" runat="server" OnClick="LBLogOut1_Click"><i class="fas fa-sign-out-alt mr-1"></i>Log Out</asp:LinkButton>
+                        </asp:Panel>
+                    </div>
+                    <div class="-mr-2 flex items-center sm:hidden">
+                        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="sm:hidden hidden" id="mobile-menu">
+                <asp:Panel ID="CustomerPanelMobile" runat="server" Visible="false" CssClass="px-2 pt-2 pb-3 space-y-1">
+                    <asp:LinkButton ID="LBOrderSupplementMobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBOrderSupplement_Click"><i class="fas fa-shopping-cart mr-1"></i>Order Supplement</asp:LinkButton>
+                    <asp:LinkButton ID="LBHistoryMobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBHistory_Click"><i class="fas fa-history mr-1"></i>History</asp:LinkButton>
+                    <asp:LinkButton ID="LBProfileMobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBProfile_Click"><i class="fas fa-user mr-1"></i>Profile</asp:LinkButton>
+                    <asp:LinkButton ID="LBCartPageMobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBCartPage_Click"><i class="fas fa-shopping-basket mr-1"></i>Cart</asp:LinkButton>
+                    <asp:LinkButton ID="LBLogOutMobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBLogOut_Click"><i class="fas fa-sign-out-alt mr-1"></i>Log Out</asp:LinkButton>
                 </asp:Panel>
-                <asp:Panel ID="AdminPanel" runat="server" Visible="false" CssClass="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBHome" CssClass="nav-link" runat="server" OnClick="LBHome_Click">Home</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBManageSupplement" CssClass="nav-link" runat="server" OnClick="LBManageSupplement_Click">Manage Supplement</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBOrderQueue" CssClass="nav-link" runat="server" OnClick="LBOrderQueue_Click">Order Queue</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBHistory1" CssClass="nav-link" runat="server" OnClick="LBHistory1_Click">History Page</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBProfile1" CssClass="nav-link" runat="server" OnClick="LBProfile1_Click">Profile</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBTReport" CssClass="nav-link" runat="server" OnClick="LBTReport_Click">Transaction Report</asp:LinkButton>
-                        </li>
-                        <li class="nav-item">
-                            <asp:LinkButton ID="LBLogOut1" CssClass="nav-link" runat="server" OnClick="LBLogOut1_Click">Log Out</asp:LinkButton>
-                        </li>
-                    </ul>
+                <asp:Panel ID="AdminPanelMobile" runat="server" Visible="false" CssClass="px-2 pt-2 pb-3 space-y-1">
+                    <asp:LinkButton ID="LBHomeMobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBHome_Click"><i class="fas fa-home mr-1"></i>Home</asp:LinkButton>
+                    <asp:LinkButton ID="LBManageSupplementMobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBManageSupplement_Click"><i class="fas fa-pills mr-1"></i>Manage Supplement</asp:LinkButton>
+                    <asp:LinkButton ID="LBOrderQueueMobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBOrderQueue_Click"><i class="fas fa-list-ol mr-1"></i>Order Queue</asp:LinkButton>
+                    <asp:LinkButton ID="LBHistory1Mobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBHistory1_Click"><i class="fas fa-history mr-1"></i>History</asp:LinkButton>
+                    <asp:LinkButton ID="LBProfile1Mobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBProfile1_Click"><i class="fas fa-user mr-1"></i>Profile</asp:LinkButton>
+                    <asp:LinkButton ID="LBTReportMobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBTReport_Click"><i class="fas fa-chart-bar mr-1"></i>Transaction Report</asp:LinkButton>
+                    <asp:LinkButton ID="LBLogOut1Mobile" CssClass="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium" runat="server" OnClick="LBLogOut1_Click"><i class="fas fa-sign-out-alt mr-1"></i>Log Out</asp:LinkButton>
                 </asp:Panel>
             </div>
         </nav>
-        <div class="p-5 flex flex-col items-center justify-center gap-2 w-full h-full">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+
+        <main class="flex-grow">
+            <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </main>
     </form>
 </body>
 </html>

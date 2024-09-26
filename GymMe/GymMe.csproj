@@ -1235,6 +1235,7 @@
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
       <LastGenOutput>DatabaseModel.cs</LastGenOutput>
     </Content>
+    <Content Include="tailwind.config.js" />
     <Content Include="Views\CartPage.aspx" />
     <Content Include="Views\HistoryDetail.aspx" />
     <Content Include="Views\HistoryPage.aspx" />
@@ -1246,6 +1247,7 @@
     <Content Include="Views\OrderSupplement.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
+    <Content Include="Views\styles.css" />
     <Content Include="Views\SuplementController.aspx" />
     <Content Include="Views\ReportPage.aspx" />
     <Content Include="Views\UpdateSupplement.aspx" />
@@ -1413,7 +1415,6 @@
     </Compile>
     <Compile Include="Views\ReportPage.aspx.cs">
       <DependentUpon>ReportPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\ReportPage.aspx.designer.cs">
       <DependentUpon>ReportPage.aspx</DependentUpon>
@@ -1446,7 +1447,9 @@
     <Content Include="Datasets\TransactionDataset.xss">
       <DependentUpon>TransactionDataset.xsd</DependentUpon>
     </Content>
+    <Content Include="package.json" />
     <None Include="packages.config" />
+    <Content Include="tailwind.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
