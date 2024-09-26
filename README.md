@@ -6,7 +6,7 @@
 ###Register Page:
 ![image](https://github.com/user-attachments/assets/bf07b86e-1fe5-488f-a3e4-51af520766ff)
 
-##Customer Login
+##Admin Login
 
 ###Home Page:
 ![image](https://github.com/user-attachments/assets/a1ab4426-5cc6-4483-a526-fd88efc18e95)
